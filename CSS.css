@@ -1,0 +1,324 @@
+/* CSS chung cho toàn bộ trang */
+body {
+    font-family: Arial, sans-serif; /*Đặt font chữ mặc định cho toàn bộ trang là Arial, nếu Arial không có sẵn, trình duyệt sẽ sử dụng font sans-serif.*/
+    margin: 0; /*Loại bỏ khoảng cách mặc định xung quanh body, đảm bảo trang web không có khoảng trắng thừa.*/
+    padding: 0;
+    background-color: #222; /*Đặt màu nền của trang là màu xám đậm (#222).*/
+    color: white; /*Đặt màu chữ mặc định là màu trắng.*/
+}
+
+/* Header */
+.header {
+    display: flex; /*Sử dụng Flexbox để dễ dàng căn chỉnh các phần tử bên trong header.*/
+    justify-content: space-between; /*Các phần tử trong header sẽ được căn đều ra hai bên, phần tử đầu tiên nằm ở bên trái, phần tử cuối cùng nằm ở bên phải.*/
+    align-items: center; /* Các phần tử trong header sẽ được căn giữa theo chiều dọc.*/
+    background: #111; /*Đặt màu nền của header là màu đen đậm (#111).*/
+    padding: 15px; /*Thêm khoảng cách bên trong header là 15px.*/
+    border-radius: 10px; /*Bo góc header với bán kính 10px.*/
+    margin-bottom: 20px; /*Thêm khoảng cách 20px phía dưới header.*/
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 15px; /*Tạo khoảng cách 15px giữa các phần tử*/
+}
+
+.logo-section img {
+    height: 80px;
+}
+
+.slogan {
+    font-size: 18px;
+    color: #ffcc00;
+    font-weight: bold; /*Làm đậm chữ của slogan.*/
+}
+
+.auth-links {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-links a {
+    color: #ffcc00;
+    text-decoration: none; /*Loại bỏ gạch chân mặc định của liên kết*/
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 12px; /*Thêm khoảng cách bên trong liên kết.*/
+    border-radius: 5px; /*Bo góc của liên kết.*/
+    transition: background-color 0.3s ease; /*Tạo hiệu ứng chuyển đổi màu nền trong 0.3 giây.*/
+}
+
+.auth-links a:hover {
+    background-color: rgba(255, 204, 0, 0.1); /*Khi hover, màu nền của liên kết sẽ thay đổi thành màu vàng nhạt.*/
+    text-decoration: underline; /*gach chan*/
+}
+
+/* Banner chữ */
+.banner {
+    width: 100%;
+    overflow: hidden; /* Ẩn phần nội dung vượt ra ngoài banner.*/
+    white-space: nowrap; /* Ngăn không cho văn bản xuống dòng*/
+    background: #ffcc00;
+    color: black;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.banner-text {
+    display: inline-block;
+    position: relative;
+    animation: marquee 10s linear infinite; /*Tạo hiệu ứng chạy chữ từ phải sang trái trong 10 giây, lặp vô hạn.*/
+}
+
+@keyframes marquee { /*Định nghĩa hiệu ứng chuyển động của chữ.*/
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Banner ảnh chạy vòng tròn */
+.carousel-banner {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    animation: scroll 20s linear infinite; /* Tốc độ chạy */
+    width: calc(200px * 8); /* Chiều rộng của track (số ảnh * kích thước ảnh) */
+}
+
+.carousel-track img {
+    width: 200px; /* Kích thước ảnh */
+    height: auto;
+    margin-right: 15px; /* Khoảng cách giữa các ảnh */
+    border-radius: 10px; /* Bo góc */
+    transition: transform 0.3s ease; /* Hiệu ứng khi hover */
+}
+
+.carousel-track img:hover {
+    transform: scale(1.1); /* Phóng to nhẹ khi hover */
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Di chuyển sang trái */
+    }
+}
+/* Tiêu đề danh sách xe */
+.car-list-title {
+    text-align: center;
+    color: #ffcc00;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+/* Danh sách siêu xe */
+.car-container {
+    display: flex;
+    flex-wrap: wrap; /*Sử dụng Flexbox để sắp xếp các xe và cho phép chúng xuống dòng khi không đủ chỗ.*/
+    justify-content: center;
+    gap: 20px; /*Tạo khoảng cách 20px giữa các xe.*/
+    padding: 20px;
+}
+
+.car {
+    background: #333;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /*Tạo bóng mờ xung quanh mỗi xe.*/
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.car:hover {
+    transform: scale(1.05);
+}
+
+.car img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.car a {
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+/* Form đăng nhập và đăng ký */
+.login-form, .register-form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.login-form h1, .register-form h1 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.login-form label, .register-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #ffcc00;
+    text-align: left;
+}
+
+.login-form input, .register-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background: #222;
+    color: white;
+    font-size: 16px;
+}
+
+.login-form button, .register-form button {
+    width: 100%;
+    padding: 10px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: #111;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form button:hover, .register-form button:hover {
+    background-color: #e6b800;
+}
+/* Phần chi tiết phụ tùng */
+.part-detail {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    text-align: center;
+}
+
+.part-detail img {
+    width: 50%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.part-detail h1 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+.part-detail p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Form mua hàng */
+.purchase-form {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.purchase-form h2 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.purchase-form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #ffcc00;
+}
+
+.purchase-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    background: #222;
+    color: white;
+    font-size: 16px;
+}
+
+.purchase-form button {
+    width: 100%;
+    padding: 10px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    color: #111;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.purchase-form button:hover {
+    background-color: #e6b800;
+}
+
+/* Liên kết quay lại */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #ffcc00;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+/* Footer */
+.footer {
+    background-color: #111; /* Màu nền tối */
+    color: white; /* Màu chữ trắng */
+    padding: 20px 0; /* Padding trên và dưới */
+    text-align: center; /* Căn giữa nội dung */
+    border-top: 1px solid #444; /* Đường viền trên */
+    margin-top: 40px; /* Khoảng cách với phần nội dung phía trên */
+}
+
+.footer-content {
+    max-width: 800px; /* Giới hạn chiều rộng của nội dung */
+    margin: 0 auto; /* Căn giữa footer */
+}
+
+.footer p {
+    margin: 5px 0; /* Khoảng cách giữa các dòng */
+    font-size: 16px; /* Kích thước chữ */
+}
+
+.footer strong {
+    color: #ffcc00; /* Màu vàng cho các tiêu đề */
+}
